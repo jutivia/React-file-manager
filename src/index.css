@@ -62,7 +62,11 @@ code {
   color: rgb(44, 44, 44);
   border-radius: 10px;
 }
-
+@media only screen and (max-width: 500px) {
+  .createPopUp {
+    left: 15%;
+  }
+}
 .createPopUp input {
   width: 90%;
   margin-top: 20px;
