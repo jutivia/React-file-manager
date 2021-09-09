@@ -4,10 +4,9 @@ const Header = () => {
   const [createFolderPopUp, setCreateFolderPopUp] = useState(false);
   const [createFilePopUp, setCreateFilePopUp] = useState(false);
   const [name, setName] = useState("");
-  const [folderName, setFolderName] = useState("");
   const [fileName, setFileName] = useState("");
-  const [parentName, setParentName] = useState("");
   const [rootFolderArray, setRootFolderArray] = useState([]);
+  const [filePath, setFilePath] = useState("./root");
   const createFolder = (e) => {
     e.preventDefault();
     if (name) {
@@ -16,21 +15,12 @@ const Header = () => {
       setCreateFolderPopUp(false);
     }
     if (fileName) {
+      setFileName(`${fileName}.txt`)
       setRootFolderArray([...rootFolderArray, fileName]);
       setFileName("");
       setCreateFilePopUp(false);
     }
-    if (folderName) {
-      setRootFolderArray([...rootFolderArray, `${folderName}/${fileName}`]);
-      setFolderName("");
-      setCreateFilePopUp(false);
-    }
-    if (parentName) {
-      setRootFolderArray([...rootFolderArray, `${parentName}/${name}`]);
-      setName("");
-      setParentName("");
-      setCreateFolderPopUp(false);
-    }
+
   };
   return (
     <>
@@ -58,8 +48,9 @@ const Header = () => {
         </div>
       </div>
       <br />
+      <h6>{filePath}</h6>
       {createFolderPopUp && (
-        <div className="popUpWrapper" >
+        <div className="popUpWrapper">
           <div className="createPopUp">
             <h3>Create Folder</h3>
             <label htmlFor="name"> Folder Name</label>
@@ -70,16 +61,7 @@ const Header = () => {
               id="name"
             />
             <br />
-            <br />
-            <label htmlFor="name">Parent Folder Name</label>
-            <br />
-            <input
-              type="text"
-              onChange={(e) => setParentName(e.target.value)}
-              id="name"
-            />
-            <br />
-            <br />
+
             <button
               type="submit"
               className="btn"
@@ -105,17 +87,10 @@ const Header = () => {
             <br />
             <input
               type="text"
-              onChange={(e) => setFileName(e.target.value + ".txt")}
+              onChange={(e) => setFileName(e.target.value)}
               id="name"
             />
-            <br />
-            <label htmlFor="name"> Folder?</label>
-            <br />
-            <input
-              type="text"
-              onChange={(e) => setFolderName(e.target.value)}
-              id="name"
-            />
+
             <br />
             <button
               type="submit"
@@ -135,15 +110,9 @@ const Header = () => {
         </div>
       )}
       <main>
-        <Files rootFolderArray={rootFolderArray} />
+        <Files props={rootFolderArray, setFilePath, setFileName, setName} />
       </main>
     </>
   );
 };
 export default Header;
-
-
-
-
-
-

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import folders from "./download.png";
 import file from "./downloads.png";
 
-const Files = ({ rootFolderArray }) => {
+const Files = (props) => {
+  const {rootFolderArray, setFilePath, setFileName, setName}=props
   const [showOptions, setShowOptions] = useState(false);
+  const [isPreviousFolder, setIsPreviousFolder]= useState(true)
+  const[createSubFolder, setCreateSubFolder]=useState(false)
  
   return (
     <>
-      <div className="root-Folder">
+     {isPreviousFolder && <div className="root-Folder">
         {rootFolderArray.map((folder, index) => {
           if (folder.indexOf("txt") > 0) {
             return (
@@ -50,8 +53,16 @@ const Files = ({ rootFolderArray }) => {
               </>
             );
           } else {
+            
             return (
-              <div className="file">
+              <div
+                className="file"
+                onClick={() => {
+                  setCreateSubFolder(true);
+                  setFilePath(`${filePath}/${folder}`);
+                  setIsPreviousFolder(false);
+                }}
+              >
                 <div
                   style={{
                     display: "flex",
@@ -85,16 +96,17 @@ const Files = ({ rootFolderArray }) => {
                 >
                   ...
                 </button>
+                {createSubFolder && (
+                  <Files
+                    props={(rootFolderArray, setFilePath, setFileName, setName)}
+                  />
+                )}
               </div>
             );
           }
         })}
-      </div>
-      {/* {showOptions && (
-        <div>
-          <p onClick={deleteFolder}>Delete</p>
-        </div>
-      )} */}
+      </div>}
+      
     </>
   );
 };
