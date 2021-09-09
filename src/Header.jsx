@@ -5,7 +5,10 @@ const Header = () => {
   const [createFilePopUp, setCreateFilePopUp] = useState(false);
   const [name, setName] = useState("");
   const [fileName, setFileName] = useState("");
-  const [rootFolderArray, setRootFolderArray] = useState([]);
+  const [rootFolderArray, setRootFolderArray] = useState([
+    "New Folder",
+    "Documnet.txt",
+  ]);
   const [filePath, setFilePath] = useState("./root");
   const createFolder = (e) => {
     e.preventDefault();
@@ -15,12 +18,11 @@ const Header = () => {
       setCreateFolderPopUp(false);
     }
     if (fileName) {
-      setFileName(`${fileName}.txt`)
+      setFileName(`${fileName}.txt`);
       setRootFolderArray([...rootFolderArray, fileName]);
       setFileName("");
       setCreateFilePopUp(false);
     }
-
   };
   return (
     <>
@@ -48,7 +50,7 @@ const Header = () => {
         </div>
       </div>
       <br />
-      <h6>{filePath}</h6>
+      <h6 style={{ marginLeft: "2.5rem", marginTop: "-1.5rem" }}>{filePath}</h6>
       {createFolderPopUp && (
         <div className="popUpWrapper">
           <div className="createPopUp">
@@ -110,7 +112,14 @@ const Header = () => {
         </div>
       )}
       <main>
-        <Files props={rootFolderArray, setFilePath, setFileName, setName} />
+        <Files
+          rootFolderArray={rootFolderArray}
+          filePath={filePath}
+          setFilePath={setFilePath}
+          setFileName={setFileName}
+          setName={setName}
+          setRootFolderArray={setRootFolderArray}
+        />
       </main>
     </>
   );
