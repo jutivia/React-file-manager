@@ -102,21 +102,21 @@ const Files = ({
                   >
                     ...
                   </button>
-                  {createSubFolder && (
-                    <Files
-                      rootFolderArray={rootFolderArray}
-                      filePath={filePath}
-                      setFilePath={setFilePath}
-                      setFileName={setFileName}
-                      setName={setName}
-                      setRootFolderArray={setRootFolderArray}
-                    />
-                  )}
                 </div>
               );
             }
           })}
         </div>
+      )}
+      {createSubFolder && (
+        <Files
+          rootFolderArray={rootFolderArray}
+          filePath={filePath}
+          setFilePath={setFilePath}
+          setFileName={setFileName}
+          setName={setName}
+          setRootFolderArray={setRootFolderArray}
+        />
       )}
     </>
   );
