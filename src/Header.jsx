@@ -19,7 +19,7 @@ const Header = () => {
       setCreateFolderPopUp(false);
     }
     if (fileName) {
-      setFileName(`${fileName}.txt`);
+      setFileName(fileName);
       setRootFolderArray([...rootFolderArray, fileName]);
       setFileName("");
       setCreateFilePopUp(false);
@@ -91,7 +91,7 @@ const Header = () => {
             <br />
             <input
               type="text"
-              onChange={(e) => setFileName(e.target.value)}
+              onChange={(e) => setFileName(e.target.value + '.txt')}
               id="name"
             />
 
