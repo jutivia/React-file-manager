@@ -60,15 +60,20 @@ const Header = () => {
               id="name"
             />
             <br />
-            <button className="btn" onClick={() => setCreateFolderPopUp(false)}>
-              Cancel
-            </button>
+            <br />
             <button
               type="submit"
               className="btn"
               onClick={(e) => createFolder(e)}
             >
               Create
+            </button>
+            <button
+              className="btn"
+              onClick={() => setCreateFolderPopUp(false)}
+              style={{ backgroundColor: "#DC143c", marginLeft: "10px" }}
+            >
+              Cancel
             </button>
           </div>
         </div>
@@ -89,12 +94,15 @@ const Header = () => {
             <button
               type="submit"
               className="btn"
-              style={{ backgroundColor: "red" }}
               onClick={(e) => createFolder(e)}
             >
               Create
             </button>
-            <button onClick={() => setCreateFilePopUp(false)} className="btn">
+            <button
+              onClick={() => setCreateFilePopUp(false)}
+              className="btn"
+              style={{ backgroundColor: "#DC143c", marginLeft: "10px" }}
+            >
               Cancel
             </button>
           </div>

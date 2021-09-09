@@ -1,4 +1,6 @@
 import React from "react";
+import folders from "./download.png";
+import file from "./downloads.png";
 
 const Files = ({ rootFolderArray }) => {
   return (
@@ -7,15 +9,57 @@ const Files = ({ rootFolderArray }) => {
         if (folder.indexOf("txt") > 0) {
           return (
             <div className="file">
-              <h4 key={index}>{folder}</h4>
-              <button style={{ fontWeight: "bold" }}>...</button>
+              <div
+                style={{ display: "flex", width: "auto", alignItems: "center" }}
+              >
+                <img
+                  src={file}
+                  alt="file"
+                  style={{ height: "30px", width: "30px", marginRight: "7px" }}
+                />
+                <h4 key={index}>{folder}</h4>
+              </div>
+              <button
+                className="btn"
+                style={{
+                  fontWeight: "bold",
+                  color: "rgb(13, 102, 80)",
+                  backgroundColor: "transparent",
+                  paddingTop: "1px",
+                  fontSize: "46px",
+                  marginTop: "-5px",
+                  marginLeft: "-0px",
+                }}
+              >
+                ...
+              </button>
             </div>
           );
         } else {
           return (
             <div className="file">
-              <h4 key={index}>{folder}</h4>
-              <button className="btn" style={{}}>
+              <div
+                style={{ display: "flex", width: "auto", alignItems: "center" }}
+              >
+                <img
+                  src={folders}
+                  alt="folder image"
+                  style={{ height: "30px", height: "30px", marginRight: "7px" }}
+                />
+                <h4 key={index}>{folder}</h4>
+              </div>
+              <button
+                className="btn"
+                style={{
+                  fontWeight: "bold",
+                  color: "rgb(13, 102, 80)",
+                  backgroundColor: "transparent",
+                  padding: "0px",
+                  fontSize: "46px",
+                  marginTop: "-5px",
+                  marginRight: "-15px",
+                }}
+              >
                 ...
               </button>
             </div>
