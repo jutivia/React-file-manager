@@ -110,7 +110,7 @@ const Header = () => {
         </div>
       )}
       <main>
-        <Files props={rootFolderArray, setFilePath, setFileName, setName} />
+        <Files props={rootFolderArray, filePath, setFilePath, setFileName, setName} />
       </main>
     </>
   );
