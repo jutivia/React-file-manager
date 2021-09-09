@@ -3,7 +3,7 @@ import folders from "./download.png";
 import file from "./downloads.png";
 
 const Files = (props) => {
-  const {rootFolderArray, setFilePath, setFileName, setName}=props
+  const {rootFolderArray, filePath, setFilePath, setFileName, setName}=props
   const [showOptions, setShowOptions] = useState(false);
   const [isPreviousFolder, setIsPreviousFolder]= useState(true)
   const[createSubFolder, setCreateSubFolder]=useState(false)
@@ -98,7 +98,7 @@ const Files = (props) => {
                 </button>
                 {createSubFolder && (
                   <Files
-                    props={(rootFolderArray, setFilePath, setFileName, setName)}
+                    props={(rootFolderArray, filePath, setFilePath, setFileName, setName)}
                   />
                 )}
               </div>
