@@ -112,6 +112,7 @@ const Header = () => {
         </div>
       )}
       <main>
+<<<<<<< HEAD
         <Files
           rootFolderArray={rootFolderArray}
           filePath={filePath}
@@ -120,6 +121,9 @@ const Header = () => {
           setName={setName}
           setRootFolderArray={setRootFolderArray}
         />
+=======
+        <Files props={rootFolderArray, filePath, setFilePath, setFileName, setName} />
+>>>>>>> 7827347b9b5d0897fd74a4990937db204e8449dc
       </main>
     </>
   );
