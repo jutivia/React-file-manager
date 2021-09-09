@@ -7,11 +7,12 @@ const Header = () => {
   const [fileName, setFileName] = useState("");
   const [rootFolderArray, setRootFolderArray] = useState([
     "New Folder",
-    "Documnet.txt",
+    "Document.txt",
   ]);
   const [filePath, setFilePath] = useState("./root");
   const createFolder = (e) => {
     e.preventDefault();
+    console.log(rootFolderArray);
     if (name) {
       setRootFolderArray([...rootFolderArray, name]);
       setName("");
@@ -63,6 +64,7 @@ const Header = () => {
               id="name"
             />
             <br />
+            <br />
 
             <button
               type="submit"
@@ -93,6 +95,7 @@ const Header = () => {
               id="name"
             />
 
+            <br />
             <br />
             <button
               type="submit"

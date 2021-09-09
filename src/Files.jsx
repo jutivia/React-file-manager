@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import folders from "./download.png";
 import file from "./downloads.png";
 
-const Files = ({ rootFolderArray, setFilePath, filePath, setFileName, setName, setRootFolderArray }) => {
-  
+const Files = ({
+  rootFolderArray,
+  setFilePath,
+  filePath,
+  setFileName,
+  setName,
+  setRootFolderArray,
+}) => {
   const [isPreviousFolder, setIsPreviousFolder] = useState(true);
   const [createSubFolder, setCreateSubFolder] = useState(false);
 
@@ -17,6 +23,7 @@ const Files = ({ rootFolderArray, setFilePath, filePath, setFileName, setName, s
                 <>
                   <div className="file">
                     <div
+                      key={index}
                       style={{
                         display: "flex",
                         width: "auto",
@@ -54,6 +61,7 @@ const Files = ({ rootFolderArray, setFilePath, filePath, setFileName, setName, s
             } else {
               return (
                 <div
+                  key={index}
                   className="file"
                   onClick={() => {
                     setCreateSubFolder(true);
